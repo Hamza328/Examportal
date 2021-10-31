@@ -1,0 +1,113 @@
+<mat-card>
+  <h1 class="mb-2">Add New Quiz</h1>
+  <mat-card-content>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <mat-form-field *ngIf="editMode" appearance="outline" class="w-100" hidden >
+              <mat-label>Quiz ID</mat-label>
+              <input
+                type="number"
+                matInput
+                name="qid"
+                ngModel
+              />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Title</mat-label>
+              <input
+                autofocus
+                type="text"
+                matInput
+                placeholder="Enter Title"
+                name="title"
+                ngModel
+                required
+              />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Description</mat-label>
+              <textarea
+                type="email"
+                matInput
+                placeholder="Enter Description"
+                rows="5"
+                name="description"
+                ngModel
+                required
+              ></textarea>
+            </mat-form-field>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Maximum marks</mat-label>
+                  <input
+                    type="number"
+                    matInput
+                    placeholder="Enter Marks"
+                    name="maxMarks"
+                    ngModel
+                    required
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Number of Question</mat-label>
+                  <input
+                    type="number"
+                    matInput
+                    placeholder="Enter Here"
+                    name="numberOfQuestions"
+                    ngModel
+                    required
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <mat-slide-toggle
+             class="mt-2"
+             ngModel
+             name="active"
+             > Publish Status </mat-slide-toggle>
+            <br>
+            <mat-form-field appearance="fill" class="w-50 mt-3">
+              <mat-label>Categoris</mat-label>
+              <!-- <mat-select
+              [compareWith]="compareObjects"
+              [(ngModel)]="obj">
+                 <mat-option  *ngFor="let obj of listOfObjs" [value]="obj">
+                    {{ obj.name }}
+                 </mat-option>
+              </mat-select> -->
+
+              <mat-select ngModel name="category">
+                <mat-option   *ngFor="let category of categories" [value]="category">{{
+                  category.title
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+            <div class="container text-center mt-2">
+              <button
+                mat-raised-button
+                color="accent"
+                [disabled]="!f.valid"
+                type="submit"
+              >
+                {{editMode ? "Update": "Add Quiz"}}
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+

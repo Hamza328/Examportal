@@ -1,0 +1,88 @@
+<!-- <mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu_book</mat-icon>
+  </button>
+
+  <span>Ameer</span>
+
+  <button [routerLink]="''" mat-icon-button class="example-icon favorite-icon ml-5" aria-label="Example icon-button with heart icon">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </button>
+
+
+
+
+  <span class="example-spacer"></span>
+
+  <button [routerLink]="'login'" mat-icon-button class="example-icon favorite-icon mr-4" aria-label="Example icon-button with heart icon">
+    <span>Login</span>
+    <mat-icon>login</mat-icon>
+  </button>
+  <button [routerLink]="'signup'" mat-icon-button class="example-icon favorite-icon mr-4 " aria-label="Example icon-button with heart icon">
+    <span>Sign Up</span>
+    <mat-icon>how_to_reg</mat-icon>
+  </button>
+
+
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1>Ameer Hamza</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <button  [routerLink]="''" mat-icon-button class="example-icon favorite-icon ml-5" aria-label="Example icon-button with heart icon">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+
+    </div>
+
+    <span class="example-spacer"></span>
+    <div>
+      <button *ngIf="!isLogedIn" [routerLink]="'login'" mat-icon-button class="example-icon favorite-icon mr-4" aria-label="Example icon-button with heart icon fxHide">
+        <span>Login</span>
+        <mat-icon>login</mat-icon>
+      </button>
+      <button  *ngIf="!isLogedIn" [routerLink]="'signup'" mat-icon-button class="example-icon favorite-icon mr-4 " aria-label="Example icon-button with heart icon">
+        <span>Sign Up</span>
+        <mat-icon>how_to_reg</mat-icon>
+      </button>
+
+      <button  *ngIf="isLogedIn" (click)="logout()"  mat-icon-button class="example-icon favorite-icon mr-4 " aria-label="Example icon-button with heart icon">
+        <span>Logout</span>
+        <mat-icon>logout</mat-icon>
+      </button>
+
+      <button  *ngIf="isLogedIn && user" [routerLink]="'/admin/profile'" mat-icon-button class="example-icon favorite-icon ml-4 mr-5 " aria-label="Example icon-button with heart icon">
+        <span>{{"Hello !"+ user.username}}</span>
+        <mat-icon>person</mat-icon>
+      </button>
+
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list >
+
+      <a mat-list-item class="mr-4" [routerLink]="''"> Home  </a>
+
+      <a mat-list-item [routerLink]="'/login'"> Login </a>
+      <a mat-list-item [routerLink]="'/signup'"> Sign Up </a>
+      <a mat-list-item (click)="sidenav.toggle()"  mat-list-item>Close</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

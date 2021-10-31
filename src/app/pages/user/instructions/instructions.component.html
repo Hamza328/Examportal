@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-card class="mt-20">
+       <mat-card-header>
+         <mat-card-title>
+           Read Instructions Carefully
+         </mat-card-title>
+         <mat-card-subtitle>
+           One step more to Go
+         </mat-card-subtitle>
+
+       </mat-card-header>
+
+       <mat-card-content>
+         <h1>{{quiz.title}}</h1>
+         <p>{{quiz.description}}</p>
+
+         <mat-divider></mat-divider>
+         <br/>
+         <h1>Important Intructions</h1>
+         <ul>
+           <li>For Practice</li>
+           <li>Submit Quiz On Time</li>
+           <li>You can Attempt quiz Any Time</li>
+           <li>There are <b>{{quiz.numberOfQuestions}} Question</b> in this Quiz </li>
+           <li>Each question carries <b>{{quiz.maxMarks / quiz.numberOfQuestions}} marks</b></li>
+           <li>All Question is MCQ types</li>
+          </ul>
+          <mat-divider></mat-divider>
+          <br/>
+          <h1>Attempting Quiz</h1>
+          <ul>
+            <li>Click <b>Start Quiz</b> button to start the Quiz</li>
+            <li>The Time will satrt when you click start button</li>
+            <li>you cannot resume this quiz, if intrupted due to any reason</li>
+            <li>scroll down to move to next question</li>
+            <li>Click On Submit Quiz button on completing</li>
+            <li>Report of the test is Automatically generated in the form of pdf copy</li>
+          </ul>
+
+       </mat-card-content>
+
+       <mat-card-actions>
+
+        <div class="container" class="text-center">
+          <button
+          mat-raised-button
+          color="primary"
+          (click)="startquiz()"
+          > Start Quiz</button>
+
+        </div>
+
+       </mat-card-actions>
+
+
+      </mat-card>
+    </div>
+  </div>
+
+</div>

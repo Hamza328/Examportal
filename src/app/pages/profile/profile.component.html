@@ -1,0 +1,58 @@
+
+<mat-card>
+  <mat-card-content>
+    <h1 class="text-center font-italic font-weight-bolder">Profile Detail</h1>
+
+    <div class="container">
+      <div class="container text-center">
+        <img
+          class="image"
+          src="https://www.rightdeed.com/images/ceo/1507171875.default-profile-male%202.jpg"
+          alt=""
+        />
+
+        <h1 class="mt-2">Ameer Hamza</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <table
+            class="
+              table
+              text-center
+              table-bordered
+              text-capitalize
+              table-striped
+            "
+          >
+            <tr>
+              <td>Username</td>
+              <td>{{user.username}}</td>
+            </tr>
+
+            <tr>
+              <td>User Id</td>
+              <td>{{user.id}}</td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>{{user.phone}}</td>
+            </tr>
+            <tr>
+              <td>Role</td>
+              <td>{{user.authorities[0].authority}}</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>{{user.enabled? "Active":"NonActive"}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="text-center">
+    <button mat-raised-button color="primary">Update</button>
+    <button mat-raised-button color="accent">SHARE</button>
+  </mat-card-actions>
+</mat-card>
